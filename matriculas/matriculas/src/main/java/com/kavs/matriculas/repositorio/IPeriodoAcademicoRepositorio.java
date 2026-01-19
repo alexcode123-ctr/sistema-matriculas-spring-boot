@@ -5,19 +5,23 @@ import org.springframework.stereotype.Repository;
 import com.kavs.matriculas.modelo.entidad.PeriodoAcademico;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IPeriodoAcademicoRepositorio extends JpaRepository<PeriodoAcademico, Integer> {
     
-    // Buscar períodos por estado
+    
     List<PeriodoAcademico> findByEstado(String estado);
     
-    // Buscar período actual (ACTIVO)
+   
     PeriodoAcademico findFirstByEstadoOrderByFechaInicioDesc(String estado);
     
-    // Buscar períodos por rango de fechas
+    
     List<PeriodoAcademico> findByFechaInicioBetween(Date inicio, Date fin);
     
-    // Buscar por nombre del período
+    
     PeriodoAcademico findByNombrePeriodo(String nombrePeriodo);
+
+
+	Optional<PeriodoAcademico> findById(PeriodoAcademico idPeriodo);
 }

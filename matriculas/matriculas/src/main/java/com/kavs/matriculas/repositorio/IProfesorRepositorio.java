@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.kavs.matriculas.modelo.entidad.Profesor;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IProfesorRepositorio extends JpaRepository<Profesor, Integer> {
@@ -19,4 +20,6 @@ public interface IProfesorRepositorio extends JpaRepository<Profesor, Integer> {
     
     // Buscar profesores activos
     List<Profesor> findByEstado(String estado);
+
+	Optional<Profesor> findById(Profesor idProfesor);
 }
